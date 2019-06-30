@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BookStore.Services.Models.GenreAdministrationService.GenreListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('table').DataTable();
+        });
+    </script>
+}
+
+<h2>Genres</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Edit", new { id = 0 })
+</p>
+
+<table class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

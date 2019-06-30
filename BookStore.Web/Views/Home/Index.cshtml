@@ -1,0 +1,24 @@
+﻿@using BookStore.Domain.Models
+@model BookStore.Services.Models.BookServise.HomePageModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Gifts</h2>
+<a href="@Url.Action("Search", "Home", new { DealType = DealType.Gift})">
+    @foreach (var item in Model.GiftBooks)
+    {
+
+
+
+    }
+</a>
+
+<h2>Paid</h2>
+<a href="@Url.Action("Search", "Home", new { DealType = DealType.Paid})">
+    @foreach (var item in Model.PaidBooks)
+    {
+        <img src="~/UploadedFiles/@item.ImageName" />
+    }
+
+</a>
